@@ -51,23 +51,23 @@ export default async function Home() {
               const done = declarations.filter((e) => e.fulfilled);
 
               // // 기간 진행률 계산
-              // const today = new Date();
-              // const totalDays = e.duration * 7; // 주를 일로 변환
-              // const daysPassed = Math.floor(
-              //   (today - starttime) / (1000 * 60 * 60 * 24)
-              // );
-              // const durationProgress = Math.min(
-              //   100,
-              //   (daysPassed / totalDays) * 100
-              // );
+              const today = new Date();
+              const totalDays = e.duration * 7; // 주를 일로 변환
+              const daysPassed = Math.floor(
+                (today - starttime) / (1000 * 60 * 60 * 24)
+              );
+              const durationProgress = Math.min(
+                100,
+                (daysPassed / totalDays) * 100
+              );
 
-              // // 목표 달성 진행률 계산
-              // const achievementProgress = Math.min(
-              //   100,
-              //   (done.length / e.minFulfill) * 100
-              // );
-              const durationProgress = 50;
-              const achievementProgress = 30;
+              // 목표 달성 진행률 계산
+              const achievementProgress = Math.min(
+                100,
+                (done.length / e.minFulfill) * 100
+              );
+              // const durationProgress = 50;
+              // const achievementProgress = 30;
 
               return (
                 <Link
